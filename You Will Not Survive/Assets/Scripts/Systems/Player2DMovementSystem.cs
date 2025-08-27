@@ -13,7 +13,7 @@ public partial struct Player2DMovementSystem : ISystem
         var deltaTime = SystemAPI.Time.DeltaTime;
         
         foreach (var (transform, input, movement, player2D) in SystemAPI.Query<RefRW<LocalTransform>, RefRO<PlayerInputComponent>, RefRO<PlayerMovementComponent>, RefRW<Player2DComponent>>()
-            .WithAll<PlayerTag>())
+            .WithAll<PlayerTagComponent>())
         {
             if (!movement.ValueRO.CanMove)
                 continue;

@@ -21,7 +21,7 @@ public class PlayerBaker : Baker<PlayerAuthoring>
     {
         var entity = GetEntity(TransformUsageFlags.Dynamic);
         
-        AddComponent<PlayerTag>(entity);
+        AddComponent<PlayerTagComponent>(entity);
         AddComponent<PlayerInputComponent>(entity);
         
         

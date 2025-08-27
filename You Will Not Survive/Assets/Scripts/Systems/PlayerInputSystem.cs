@@ -145,7 +145,7 @@ public partial class PlayerInputSystem : SystemBase
     private void UpdatePlayerInput(float2 moveDirection)
     {
         foreach (var(input, entity) in SystemAPI.Query<RefRW<PlayerInputComponent>>()
-            .WithAll<PlayerTag>()
+            .WithAll<PlayerTagComponent>()
             .WithEntityAccess())
         {
             input.ValueRW.MoveDirection = moveDirection;
