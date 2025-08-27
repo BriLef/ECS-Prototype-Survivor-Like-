@@ -1,7 +1,7 @@
 using Unity.Entities;
 using Unity.Mathematics;
 
-namespace Components
+namespace Components.Player
 {
     /// <summary>
     /// Component for 2D top-down player specific functionality

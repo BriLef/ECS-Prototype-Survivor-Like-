@@ -1,5 +1,6 @@
 using Unity.Entities;
-namespace Components
+
+namespace Components.Player
 {
     public class PlayerTagComponent : IComponentData
     {
