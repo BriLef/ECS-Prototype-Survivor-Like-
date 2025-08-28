@@ -7,7 +7,7 @@ namespace Components.Weapon
     {
         public FixedList512Bytes<Entity> Weapons; // Store weapon entities (up to 64 weapons)
         public bool HasWeapons => Weapons.Length > 0;
-        
+
         public void AddWeapon(Entity weaponEntity)
         {
             if (Weapons.Length < Weapons.Capacity)
@@ -15,7 +15,7 @@ namespace Components.Weapon
                 Weapons.Add(weaponEntity);
             }
         }
-        
+
         public void RemoveWeapon(Entity weaponEntity)
         {
             for (int i = 0; i < Weapons.Length; i++)
@@ -27,7 +27,7 @@ namespace Components.Weapon
                 }
             }
         }
-        
+
         public void RemoveWeaponAtIndex(int index)
         {
             if (index >= 0 && index < Weapons.Length)
@@ -35,7 +35,7 @@ namespace Components.Weapon
                 Weapons.RemoveAt(index);
             }
         }
-        
+
         public Entity GetWeaponAtIndex(int index)
         {
             if (index >= 0 && index < Weapons.Length)
@@ -44,12 +44,12 @@ namespace Components.Weapon
             }
             return Entity.Null;
         }
-        
+
         public int GetWeaponCount()
         {
             return Weapons.Length;
         }
-        
+
         public void ClearAllWeapons()
         {
             Weapons.Clear();

@@ -144,7 +144,6 @@ namespace Systems.Player
         private void UpdatePlayerInput(float2 moveDirection)
         {
             foreach (var(input, entity) in SystemAPI.Query<RefRW<PlayerInputComponent>>()
-                .WithAll<PlayerTagComponent>()
                 .WithEntityAccess())
             {
                 input.ValueRW.MoveDirection = moveDirection;

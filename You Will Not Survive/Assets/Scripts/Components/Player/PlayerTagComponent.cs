@@ -2,8 +2,9 @@ using Unity.Entities;
 
 namespace Components.Player
 {
-    public class PlayerTagComponent : IComponentData
+    // Tag component to identify player entities
+    public struct PlayerTagComponent : IComponentData
     {
-
+        // This is just a tag, no data needed
     }
 }

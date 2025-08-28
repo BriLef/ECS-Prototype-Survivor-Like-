@@ -31,8 +31,7 @@ namespace Systems.Weapon
                 }
             }
             
-            foreach (var (inventory, playerTransform) in SystemAPI.Query<RefRW<WeaponInventoryComponent>, RefRO<LocalTransform>>()
-                .WithAll<PlayerTagComponent>())
+            foreach (var (inventory, playerTransform) in SystemAPI.Query<RefRW<WeaponInventoryComponent>, RefRO<LocalTransform>>())
             {
                 // Check each weapon in the inventory
                 for (int i = 0; i < inventory.ValueRO.Weapons.Length; i++)

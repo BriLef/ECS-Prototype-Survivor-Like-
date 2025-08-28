@@ -15,8 +15,7 @@ namespace Systems.Player
         {
             var deltaTime = SystemAPI.Time.DeltaTime;
             
-            foreach (var (transform, input, movement, player2D) in SystemAPI.Query<RefRW<LocalTransform>, RefRO<PlayerInputComponent>, RefRO<PlayerMovementComponent>, RefRW<Player2DComponent>>()
-                .WithAll<PlayerTagComponent>())
+                    foreach (var (transform, input, movement, player2D) in SystemAPI.Query<RefRW<LocalTransform>, RefRO<PlayerInputComponent>, RefRO<PlayerMovementComponent>, RefRW<Player2DComponent>>())
             {
                 if (!movement.ValueRO.CanMove)
                     continue;
@@ -33,6 +32,12 @@ namespace Systems.Player
 
                     var newPosition = currentPosition + new float3(moveDirection.x, moveDirection.y, 0) * movement.ValueRO.MoveSpeed * deltaTime;
                     transform.ValueRW.Position = newPosition;
+                    
+                    // Update facing direction
+                    if (math.lengthsq(moveDirection) > 0.01f)
+                    {
+                        player2D.ValueRW.FacingDirection = math.normalize(moveDirection);
+                    }
                 }
             }
         }

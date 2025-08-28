@@ -7,11 +7,6 @@ namespace Components.Player
     {
         public float MoveSpeed;
         public bool CanMove;
-        
-        public PlayerMovementComponent(float moveSpeed = 5f)
-        {
-            MoveSpeed = moveSpeed;
-            CanMove = true;
-        }
+        public float2 LastMoveDirection;
     }
 } 
