@@ -61,15 +61,26 @@ namespace Systems.Player
                 // Handle sprite flipping based on movement direction
                 if (isMoving && math.lengthsq(moveDirection) > 0.01f)
                 {
-                    float currentDirection = math.atan2(moveDirection.y, moveDirection.x);
+                    // Only change flip state when horizontal direction changes
+                    float horizontalDirection = moveDirection.x;
                     
-                    // Flip sprite if moving left (negative X direction)
-                    bool shouldFlip = currentDirection > math.PI * 0.5f && currentDirection < math.PI * 1.5f;
-                    
-                    if (shouldFlip != rend.ShouldFlipX)
+                    // If we have a significant horizontal movement, update the flip state
+                    if (math.abs(horizontalDirection) > 0.1f)
                     {
-                        rend.ShouldFlipX = shouldFlip;
-                        rend.LastMoveDirection = currentDirection;
+                        bool shouldFlip = horizontalDirection < 0; // Flip if moving left
+                        
+                        if (shouldFlip != rend.ShouldFlipX)
+                        {
+                            rend.ShouldFlipX = shouldFlip;
+                            rend.LastMoveDirection = math.atan2(moveDirection.y, moveDirection.x);
+                            Debug.Log($"Changed flip state to: {shouldFlip} (moving {(shouldFlip ? "left" : "right")})");
+                        }
+                    }
+                    // If moving primarily up/down, keep the current flip state
+                    else
+                    {
+                        // Preserve the current flip state when moving up/down
+                        Debug.Log($"Preserving flip state: {rend.ShouldFlipX} (moving up/down)");
                     }
                 }
                 

@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130fe4e04ebf6df479d4f53c6bda71c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAnimator: {fileID: 9063654849088598324}
-  playerSprite: {fileID: 4479460981822147709}
+  playerAnimator: {fileID: 0}
+  playerSprite: {fileID: 0}
   idleTriggerName: Idle
   walkTriggerName: Walk
   celebrateTriggerName: Celebrate
@@ -137,7 +137,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -319584417, guid: 02256293b4a80e741a9ce4baf7d93ba6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
